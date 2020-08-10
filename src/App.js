@@ -1,26 +1,75 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {
+  CssBaseline,
+  MuiThemeProvider,
+  createMuiTheme,
+} from '@material-ui/core';
+import Routes from './routes';
+import { createHashHistory } from 'history';
 
-function App() {
+const theme = createMuiTheme({
+  overrides: {
+    MuiAppBar: {
+      root: {
+        boxShadow: 'none',
+      },
+      colorPrimary: {
+        backgroundColor: '#fff',
+      },
+    },
+    MuiInputBase: {
+      input: {
+        lineHeight: 1,
+      },
+    },
+    MuiCardContent: {
+      root: {
+        padding: '1.5em 3em',
+      },
+    },
+    MuiButton: {
+      root: {
+        textTransform: 'capitalize',
+        fontWeight: 600,
+      },
+      contained: {
+        boxShadow: 'none',
+      },
+    },
+  },
+  typography: {
+    useNextVariants: true,
+    fontFamily: [
+      '-apple-system',
+      'BlinkMacSystemFont',
+      '"Segoe UI"',
+      'Roboto',
+      '"Helvetica Neue"',
+      'Arial',
+      'sans-serif',
+      '"Apple Color Emoji"',
+      '"Segoe UI Emoji"',
+      '"Segoe UI Symbol"',
+    ].join(','),
+  },
+  palette: {
+    primary: {
+      main: '#262626',
+    },
+    secondary: {
+      main: '#0095F6',
+    },
+  },
+});
+const history = createHashHistory();
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <MuiThemeProvider theme={theme}>
+      <CssBaseline />
+      <Routes history={history} />
+    </MuiThemeProvider>
   );
-}
+};
 
 export default App;
