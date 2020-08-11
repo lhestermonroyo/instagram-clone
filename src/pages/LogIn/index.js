@@ -9,9 +9,12 @@ import {
   InputAdornment,
   IconButton,
   Button,
+  Typography,
 } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
 import Logo from '../../components/Logo';
+import Divider from '../../components/Divider';
+import LogInWithFbButton from '../../components/LogInWithFbButton';
 import { styles } from './styles';
 
 class LogIn extends Component {
@@ -38,7 +41,7 @@ class LogIn extends Component {
     const { username, password, showPassword } = this.state;
     return (
       <Container component="main" maxWidth="sm" className={classes.container}>
-        <Card>
+        <Card className={classes.card}>
           <CardContent>
             <Logo type="text" />
             <form className={classes.form}>
@@ -49,6 +52,7 @@ class LogIn extends Component {
                   name="username"
                   value={username}
                   variant="outlined"
+                  size="small"
                   label="Phone number, username, or email"
                   margin="normal"
                   fullWidth
@@ -61,6 +65,7 @@ class LogIn extends Component {
                   name="password"
                   value={password}
                   variant="outlined"
+                  size="small"
                   label="Password"
                   InputProps={{
                     endAdornment: (
@@ -80,7 +85,7 @@ class LogIn extends Component {
               </FormControl>
               <Button
                 type="submit"
-                color="primary"
+                color="secondary"
                 variant="contained"
                 size="large"
                 className={classes.button}
@@ -88,6 +93,20 @@ class LogIn extends Component {
                 Log In
               </Button>
             </form>
+            <Divider />
+            <div className={classes.formFooter}>
+              <LogInWithFbButton />
+              <Button variant="text" size="small" fullWidth>
+                Forget password?
+              </Button>
+            </div>
+          </CardContent>
+        </Card>
+        <Card className={classes.cardSignUp}>
+          <CardContent>
+            <Typography variant="body2" align="center">
+              Don't have an account? <Button variant="text">Sign Up</Button>
+            </Typography>
           </CardContent>
         </Card>
       </Container>

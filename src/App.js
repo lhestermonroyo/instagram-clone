@@ -35,6 +35,11 @@ const theme = createMuiTheme({
       contained: {
         boxShadow: 'none',
       },
+      text: {
+        '&:hover': {
+          backgroundColor: '#fff !important',
+        },
+      },
     },
   },
   typography: {
