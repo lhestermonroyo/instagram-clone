@@ -11,7 +11,7 @@ class Routes extends Component {
       <BrowserRouter>
         <Header history={history} />
         <Switch>
-          <Route path="/" render={() => <LogIn />} />
+          <Route exact path="/" render={() => <LogIn />} />
           <Route path="/sign-up" render={() => <SignUp />} />
         </Switch>
       </BrowserRouter>

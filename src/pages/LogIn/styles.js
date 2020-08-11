@@ -8,7 +8,7 @@ export const styles = (theme) => ({
   form: {
     padding: theme.spacing(4, 0),
   },
-  textfield: {
+  formcontrol: {
     width: '100%',
     margin: theme.spacing(0.25, 0),
   },
@@ -16,10 +16,19 @@ export const styles = (theme) => ({
     width: '100%',
     margin: theme.spacing(0.5, 0),
   },
+  buttonForgetPassword: {
+    textDecoration: 'none',
+    color: '#262626',
+  },
   formFooter: {
     padding: theme.spacing(2, 0),
   },
   cardSignUp: {
     margin: theme.spacing(2, 5),
+  },
+  buttonSignUp: {
+    textDecoration: 'none',
+    color: '#0095F6',
+    fontWeight: 600,
   },
 });

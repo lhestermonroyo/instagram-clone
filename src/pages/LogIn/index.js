@@ -12,10 +12,12 @@ import {
   Typography,
 } from '@material-ui/core';
 import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { Link } from 'react-router-dom';
 import Logo from '../../components/Logo';
 import Divider from '../../components/Divider';
 import LogInWithFbButton from '../../components/LogInWithFbButton';
 import { styles } from './styles';
+import Footer from '../../components/Footer';
 
 class LogIn extends Component {
   constructor() {
@@ -45,7 +47,7 @@ class LogIn extends Component {
           <CardContent>
             <Logo type="text" />
             <form className={classes.form}>
-              <FormControl className={classes.textfield}>
+              <FormControl className={classes.formcontrol}>
                 <TextField
                   autoFocus
                   onChange={this.handleChange}
@@ -58,7 +60,7 @@ class LogIn extends Component {
                   fullWidth
                 />
               </FormControl>
-              <FormControl className={classes.textfield}>
+              <FormControl className={classes.formcontrol}>
                 <TextField
                   type={showPassword ? 'text' : 'password'}
                   onChange={this.handleChange}
@@ -96,19 +98,28 @@ class LogIn extends Component {
             <Divider />
             <div className={classes.formFooter}>
               <LogInWithFbButton />
-              <Button variant="text" size="small" fullWidth>
-                Forget password?
-              </Button>
+              <Typography variant="body2" align="center">
+                <Link
+                  className={classes.buttonForgetPassword}
+                  to="#/forget-password"
+                >
+                  Forget Password?
+                </Link>
+              </Typography>
             </div>
           </CardContent>
         </Card>
         <Card className={classes.cardSignUp}>
           <CardContent>
-            <Typography variant="body2" align="center">
-              Don't have an account? <Button variant="text">Sign Up</Button>
+            <Typography variant="body1" align="center">
+              Don't have an account?{' '}
+              <Link className={classes.buttonSignUp} to="#/sign-up">
+                Sign Up
+              </Link>
             </Typography>
           </CardContent>
         </Card>
+        <Footer />
       </Container>
     );
   }
