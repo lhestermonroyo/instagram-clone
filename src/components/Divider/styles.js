@@ -4,6 +4,8 @@ export const styles = (theme) => ({
     width: 50,
     margin: 'auto',
     marginTop: -13,
+    color: '#9C8E8E',
+    fontWeight: 600,
   },
   divider: {
     height: 1,

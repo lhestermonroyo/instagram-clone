@@ -5,6 +5,6 @@ export const styles = (theme) => ({
   fbIcon: {
     height: 18,
     width: 18,
-    marginRight: theme.spacing(1),
+    marginRight: theme.spacing(0.5),
   },
 });

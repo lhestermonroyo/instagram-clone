@@ -18,6 +18,7 @@ import Divider from '../../components/Divider';
 import LogInWithFbButton from '../../components/LogInWithFbButton';
 import { styles } from './styles';
 import Footer from '../../components/Footer';
+import SignUpCard from '../../components/SignUpCard';
 
 class LogIn extends Component {
   constructor() {
@@ -101,7 +102,7 @@ class LogIn extends Component {
               <Typography variant="body2" align="center">
                 <Link
                   className={classes.buttonForgetPassword}
-                  to="#/forget-password"
+                  to="/forget-password"
                 >
                   Forget Password?
                 </Link>
@@ -109,16 +110,7 @@ class LogIn extends Component {
             </div>
           </CardContent>
         </Card>
-        <Card className={classes.cardSignUp}>
-          <CardContent>
-            <Typography variant="body1" align="center">
-              Don't have an account?{' '}
-              <Link className={classes.buttonSignUp} to="#/sign-up">
-                Sign Up
-              </Link>
-            </Typography>
-          </CardContent>
-        </Card>
+        <SignUpCard type="login" />
         <Footer />
       </Container>
     );

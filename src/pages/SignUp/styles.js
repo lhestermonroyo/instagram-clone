@@ -5,6 +5,12 @@ export const styles = (theme) => ({
   card: {
     margin: theme.spacing(0, 5),
   },
+  subtitle: {
+    marginBottom: theme.spacing(3),
+  },
+  buttonlogInWithFacebook: {
+    marginBottom: theme.spacing(6),
+  },
   form: {
     padding: theme.spacing(3, 0),
   },
@@ -14,13 +20,11 @@ export const styles = (theme) => ({
   },
   button: {
     width: '100%',
-    margin: theme.spacing(0.5, 0),
+    margin: theme.spacing(0.5, 0, 2),
   },
-  buttonForgetPassword: {
+  buttonTerms: {
     textDecoration: 'none',
-    color: '#262626',
-  },
-  formFooter: {
-    padding: theme.spacing(2, 0),
+    color: '#757575',
+    fontWeight: 600,
   },
 });

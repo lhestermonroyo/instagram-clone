@@ -5,5 +5,6 @@ export const styles = (theme) => ({
   footerLabel: {
     textTransform: 'uppercase',
     fontWeight: 600,
+    color: '#9C8E8E',
   },
 });

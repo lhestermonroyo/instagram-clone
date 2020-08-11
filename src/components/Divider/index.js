@@ -7,7 +7,7 @@ const Divider = (props) => {
   return (
     <>
       <div className={classes.divider} />
-      <Typography align="center" className={classes.label}>
+      <Typography align="center" variant="body1" className={classes.label}>
         OR
       </Typography>
     </>

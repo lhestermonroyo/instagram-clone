@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 class Header extends Component {
   render() {
     const { history } = this.props;
-    return <>{history.location.pathname !== '/' && <h1>Header</h1>}</>;
+    const { pathname } = history.location;
+    return (
+      <>{pathname !== '/' || (pathname === '/sign-up' && <h1>Header</h1>)}</>
+    );
   }
 }
 
