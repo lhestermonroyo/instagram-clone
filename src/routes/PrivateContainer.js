@@ -4,10 +4,10 @@ import Header from '../components/Header';
 import { Container } from '@material-ui/core';
 
 const PrivateContainer = (props) => {
-  const { children } = props;
+  const { children, history } = props;
   return (
     <>
-      <Header />
+      <Header history={history} />
       <Container component="main" maxWidth="md">
         {children}
       </Container>
@@ -16,6 +16,7 @@ const PrivateContainer = (props) => {
 };
 
 PrivateContainer.propTypes = {
+  history: PropTypes.object,
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.node),
     PropTypes.node,

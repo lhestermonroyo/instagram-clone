@@ -1,10 +1,9 @@
 export const styles = (theme) => ({
   button: {
     marginBottom: theme.spacing(3),
+    color: '#385185',
   },
-  fbIcon: {
-    height: 18,
-    width: 18,
-    marginRight: theme.spacing(0.5),
+  icon: {
+    marginRight: theme.spacing(1),
   },
 });

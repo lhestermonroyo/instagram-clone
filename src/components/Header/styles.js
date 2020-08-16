@@ -47,4 +47,9 @@ export const styles = (theme) => ({
       width: '20ch',
     },
   },
+  avatarImg: {
+    height: 30,
+    width: 30,
+    border: '2px solid #dbdbdb',
+  },
 });

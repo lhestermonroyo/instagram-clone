@@ -11,6 +11,9 @@ export const styles = (theme) => ({
   buttonlogInWithFacebook: {
     marginBottom: theme.spacing(6),
   },
+  icon: {
+    marginRight: theme.spacing(1),
+  },
   form: {
     padding: theme.spacing(3, 0),
   },

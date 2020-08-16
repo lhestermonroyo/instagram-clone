@@ -12,6 +12,7 @@ const privateRoutes = [
 
 class Routes extends Component {
   render() {
+    const { history } = this.props;
     return (
       <HashRouter>
         <Switch>
@@ -20,6 +21,7 @@ class Routes extends Component {
           {privateRoutes.map(({ path, container, component }) => (
             <PrivateRoute
               path={path}
+              history={history}
               container={container}
               component={component}
             />

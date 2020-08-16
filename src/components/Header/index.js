@@ -6,6 +6,12 @@ import {
   IconButton,
   InputBase,
   withStyles,
+  Menu,
+  MenuItem,
+  ListItemIcon,
+  Typography,
+  Divider,
+  Avatar,
 } from '@material-ui/core';
 import {
   Home,
@@ -14,14 +20,34 @@ import {
   Explore,
   Favorite,
   AccountCircle,
+  Bookmark,
+  Settings,
 } from '@material-ui/icons';
 import Logo from '../Logo';
 import { styles } from './styles';
 import { Link } from 'react-router-dom';
+import AvatarImg from '../../resource/avatar.png';
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      anchorEl: null,
+    };
+
+    this.handleClick = this.handleClick.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+  }
+  handleClick(event) {
+    this.setState({ anchorEl: event.currentTarget });
+  }
+  handleClose(e) {
+    this.setState({ anchorEl: null });
+  }
   render() {
-    const { classes } = this.props;
+    const { classes, history } = this.props;
+    const { anchorEl } = this.state;
 
     return (
       <>
@@ -61,9 +87,52 @@ class Header extends Component {
                 <IconButton color="primary">
                   <Favorite />
                 </IconButton>
-                <IconButton color="primary">
-                  <AccountCircle />
+                <IconButton
+                  onClick={this.handleClick}
+                  color="primary"
+                  aria-owns={anchorEl ? 'simple-menu' : undefined}
+                  aria-haspopup="true"
+                >
+                  <Avatar className={classes.avatarImg} alt="Eren Jaeger" src={AvatarImg} />
                 </IconButton>
+                <Menu
+                  getContentAnchorEl={null}
+                  anchorOrigin={{
+                    vertical: 'bottom',
+                    horizontal: 'center',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'center',
+                  }}
+                  id="simple-menu"
+                  anchorEl={anchorEl}
+                  open={Boolean(anchorEl)}
+                  onClose={this.handleClose}
+                >
+                  <MenuItem>
+                    <ListItemIcon>
+                      <AccountCircle />
+                    </ListItemIcon>
+                    <Typography variant="primary">Profile</Typography>
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Bookmark />
+                    </ListItemIcon>
+                    <Typography variant="primary">Saved</Typography>
+                  </MenuItem>
+                  <MenuItem>
+                    <ListItemIcon>
+                      <Settings />
+                    </ListItemIcon>
+                    <Typography variant="primary">Settings</Typography>
+                  </MenuItem>
+                  <Divider />
+                  <MenuItem onClick={() => history.push('/')}>
+                    <Typography variant="primary">Log Out</Typography>
+                  </MenuItem>
+                </Menu>
               </Toolbar>
             </Container>
           </AppBar>

@@ -11,7 +11,7 @@ import {
   Button,
   Typography,
 } from '@material-ui/core';
-import { Visibility, VisibilityOff } from '@material-ui/icons';
+import { Visibility, VisibilityOff, Facebook } from '@material-ui/icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import Logo from '../../components/Logo';
@@ -65,11 +65,7 @@ class SignUp extends Component {
               size="large"
               className={classes.buttonlogInWithFacebook}
             >
-              <FontAwesomeIcon
-                icon={faFacebookSquare}
-                size="lg"
-                className="fa-fw"
-              />{' '}
+              <Facebook className={classes.icon} />
               Log in with Facebook
             </Button>
             <Divider />
