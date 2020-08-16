@@ -11,6 +11,9 @@ const Logo = (props) => {
       {type === 'icon' && (
         <img className={classes.logoIcon} src={logoIcon} alt="logo-icon" />
       )}
+      {type === 'nav-text' && (
+        <img className={classes.navLogoIcon} src={logoText} alt="logo-text" />
+      )}
       {type === 'text' && (
         <div className={classes.logoContainer}>
           <img className={classes.logoIcon} src={logoText} alt="logo-text" />

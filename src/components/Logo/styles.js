@@ -9,4 +9,8 @@ export const styles = {
     width: 'auto',
     margin: 'auto',
   },
+  navLogoIcon: {
+    height: 40,
+    width: 'auto',
+  },
 };
