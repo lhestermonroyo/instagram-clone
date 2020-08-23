@@ -22,9 +22,10 @@ const theme = createMuiTheme({
         lineHeight: 1,
       },
     },
-    MuiCardContent: {
+    MuiCard: {
       root: {
-        padding: '1.5em 3em',
+        border: '1px solid #DBDBDB',
+        boxShadow: 'none',
       },
     },
     MuiButton: {

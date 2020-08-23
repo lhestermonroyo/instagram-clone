@@ -4,6 +4,7 @@ export const styles = (theme) => ({
   },
   card: {
     margin: theme.spacing(0, 5),
+    padding: '1.5em 3em',
   },
   form: {
     padding: theme.spacing(3, 0),

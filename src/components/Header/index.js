@@ -14,14 +14,14 @@ import {
   Avatar,
 } from '@material-ui/core';
 import {
-  Home,
   Search,
-  Send,
-  Explore,
-  Favorite,
   AccountCircle,
   Bookmark,
   Settings,
+  HomeOutlined,
+  SendOutlined,
+  ExploreOutlined,
+  FavoriteBorderOutlined,
 } from '@material-ui/icons';
 import Logo from '../Logo';
 import { styles } from './styles';
@@ -76,16 +76,16 @@ class Header extends Component {
                 </div>
                 <div className={classes.grow} />
                 <IconButton color="primary">
-                  <Home />
+                  <HomeOutlined />
                 </IconButton>
                 <IconButton color="primary">
-                  <Send />
+                  <SendOutlined />
                 </IconButton>
                 <IconButton color="primary">
-                  <Explore />
+                  <ExploreOutlined />
                 </IconButton>
                 <IconButton color="primary">
-                  <Favorite />
+                  <FavoriteBorderOutlined />
                 </IconButton>
                 <IconButton
                   onClick={this.handleClick}
@@ -93,7 +93,11 @@ class Header extends Component {
                   aria-owns={anchorEl ? 'simple-menu' : undefined}
                   aria-haspopup="true"
                 >
-                  <Avatar className={classes.avatarImg} alt="Eren Jaeger" src={AvatarImg} />
+                  <Avatar
+                    className={classes.avatarImg}
+                    alt="Eren Jaeger"
+                    src={AvatarImg}
+                  />
                 </IconButton>
                 <Menu
                   getContentAnchorEl={null}

@@ -8,7 +8,7 @@ const PrivateContainer = (props) => {
   return (
     <>
       <Header history={history} />
-      <Container component="main" maxWidth="md">
+      <Container style={{ marginTop: '5em' }} component="main" maxWidth="md">
         {children}
       </Container>
     </>
