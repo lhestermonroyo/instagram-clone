@@ -13,6 +13,11 @@ import {
   InputAdornment,
   TextField,
   Button,
+  Dialog,
+  List,
+  ListItem,
+  ListItemText,
+  Divider,
 } from '@material-ui/core';
 import {
   MoreHoriz,
@@ -26,45 +31,38 @@ import classNames from 'classnames';
 import TimeAgo from 'react-timeago';
 import { styles } from './styles';
 import { feedData } from '../../data';
+import { Link } from 'react-router-dom';
 
 class FeedCard extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      feedMoreDialog: false,
+    };
+
+    this.handleDialog = this.handleDialog.bind(this);
+  }
+  handleDialog() {
+    this.setState({
+      feedMoreDialog: !this.state.feedMoreDialog,
+    });
+  }
   render() {
     const { classes } = this.props;
+    const { feedMoreDialog } = this.state;
+
     return feedData.map((data, i) => (
       <Card className={classes.feedCard} key={i}>
-        <CardHeader
-          avatar={<Avatar src={data.avatarUrl} />}
-          action={
-            <IconButton aria-label="settings">
-              <MoreHoriz />
-            </IconButton>
-          }
-          title={
-            <Typography variant="body1" color="textPrimary">
-              <strong>{data.username}</strong>
-            </Typography>
-          }
-          subheader={
-            <Typography variant="body2" color="textPrimary">
-              {data.location}
-            </Typography>
-          }
+        <FeedHeader
+          classes={classes}
+          avatarUrl={data.avatarUrl}
+          username={data.username}
+          location={data.location}
+          handleDialog={this.handleDialog}
+          feedMoreDialog={feedMoreDialog}
         />
-        <Carousel
-          activeIndicatorProps={{ className: classes.inactiveIndicators }}
-          indicatorProps={{ className: classes.indicator }}
-          autoPlay={false}
-          animation="slide"
-          strictIndexing
-          navButtonsAlwaysVisible
-          startAt={0}
-        >
-          {data.imagesPosted.map((image, i) => (
-            <Paper key={i} className={classes.carouselPaper}>
-              <img src={image} alt={i} className={classes.carouselImage} />
-            </Paper>
-          ))}
-        </Carousel>
+        <FeedImages classes={classes} imagesPosted={data.imagesPosted} />
         <CardActions disableSpacing className={classes.cardActions}>
           <IconButton className={classes.cardActionButtons} aria-label="like">
             <FavoriteBorderOutlined
@@ -97,9 +95,9 @@ class FeedCard extends Component {
           />
         </IconButton>
         <CardContent>
-          <Typography variant="body2" color="textPrimary">
-            <strong>{data.username}</strong> {data.caption}
-          </Typography>
+          <FeedLikes classes={classes} likers={data.likes} />
+          <FeedCaption username={data.username} caption={data.caption} />
+          <FeedComments classes={classes} comments={data.comments} />
           <Typography
             className={classes.timePostedLabel}
             variant="button"
@@ -135,5 +133,172 @@ class FeedCard extends Component {
     ));
   }
 }
+
+const FeedHeader = (props) => {
+  const {
+    classes,
+    avatarUrl,
+    username,
+    location,
+    handleDialog,
+    feedMoreDialog,
+  } = props;
+  const moreRedItems = ['Report Inappropriate', 'Unfollow'];
+  const moreItems = ['Go to post', 'Share', 'Copy Link', 'Embed'];
+  return (
+    <>
+      <CardHeader
+        avatar={<Avatar src={avatarUrl} />}
+        action={
+          <IconButton aria-label="settings" onClick={() => handleDialog()}>
+            <MoreHoriz />
+          </IconButton>
+        }
+        title={
+          <Typography variant="body1" color="textPrimary">
+            <strong>{username}</strong>
+          </Typography>
+        }
+        subheader={
+          <Typography variant="caption" color="textPrimary">
+            {location}
+          </Typography>
+        }
+      />
+      <Dialog
+        onClose={() => handleDialog()}
+        aria-labelledby="simple-dialog-title"
+        open={feedMoreDialog}
+      >
+        <List>
+          {moreRedItems.map((list, i) => (
+            <>
+              <ListItem key={i} button>
+                <ListItemText
+                  className={classNames(classes.redItems, classes.moreItems)}
+                >
+                  <strong>{list}</strong>
+                </ListItemText>
+              </ListItem>
+              <Divider />
+            </>
+          ))}
+          {moreItems.map((list, i) => (
+            <>
+              <ListItem key={i} button>
+                <ListItemText className={classes.moreItems}>
+                  {list}
+                </ListItemText>
+              </ListItem>
+              <Divider />
+            </>
+          ))}
+          <ListItem button onClick={() => handleDialog()}>
+            <ListItemText className={classes.moreItems}>Cancel</ListItemText>
+          </ListItem>
+        </List>
+      </Dialog>
+    </>
+  );
+};
+
+const FeedImages = (props) => {
+  const { classes, imagesPosted } = props;
+
+  return (
+    <>
+      {imagesPosted.length !== 1 ? (
+        <Carousel
+          activeIndicatorProps={{ className: classes.inactiveIndicators }}
+          indicatorProps={{ className: classes.indicator }}
+          autoPlay={false}
+          animation="slide"
+          strictIndexing
+          navButtonsAlwaysVisible
+          startAt={0}
+        >
+          {imagesPosted.map((image, i) => (
+            <Paper key={i} className={classes.carouselPaper}>
+              <img src={image} alt={i} className={classes.carouselImage} />
+            </Paper>
+          ))}
+        </Carousel>
+      ) : (
+        <Paper
+          className={classNames(classes.carouselPaper, classes.singleImage)}
+        >
+          <img
+            src={imagesPosted[0]}
+            alt="0"
+            className={classes.carouselImage}
+          />
+        </Paper>
+      )}
+    </>
+  );
+};
+
+const FeedLikes = (props) => {
+  const { classes, likers } = props;
+  const { username, avatarUrl } = likers.length !== 0 && likers[0];
+  let likersCount = likers.length - 1;
+  return (
+    <div className={classes.feedLikesContainer}>
+      {likers.length !== 0 && (
+        <>
+          <Avatar src={avatarUrl} className={classes.feedLikesAvatar} />
+          <Typography variant="body2" className={classes.feedLikesLabel}>
+            {likers.length > 1 ? (
+              <>
+                Liked by <strong>{username}</strong> and{' '}
+                <strong>{likersCount} others</strong>
+              </>
+            ) : (
+              <>
+                Liked by <strong>{username}</strong>
+              </>
+            )}
+          </Typography>
+        </>
+      )}
+    </div>
+  );
+};
+
+const FeedCaption = (props) => {
+  const { username, caption } = props;
+  return (
+    <Typography variant="body2" color="textPrimary">
+      <strong>{username}</strong> {caption}
+    </Typography>
+  );
+};
+
+const FeedComments = (props) => {
+  const { classes, comments } = props;
+  return (
+    <>
+      {comments.length > 2 && (
+        <Link to="/" className={classes.viewCommentButton}>
+          <Typography variant="body2" color="textSecondary">
+            View all {comments.length} comments
+          </Typography>
+        </Link>
+      )}
+      {comments &&
+        comments.map((comment, i) => {
+          return (
+            <>
+              {i <= 2 ? (
+                <Typography variant="body2" color="textPrimary">
+                  <strong>{comment.username}</strong> {comment.comment}
+                </Typography>
+              ) : null}
+            </>
+          );
+        })}
+    </>
+  );
+};
 
 export default withStyles(styles)(FeedCard);

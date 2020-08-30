@@ -12,8 +12,6 @@ import {
   Typography,
 } from '@material-ui/core';
 import { Visibility, VisibilityOff, Facebook } from '@material-ui/icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons';
 import Logo from '../../components/Logo';
 import { styles } from './styles';
 import Footer from '../../components/Footer';

@@ -56,7 +56,12 @@ export const feedData = [
     imagesPosted: [Img1, Img2, Img3, Img4, Img5],
     timePosted: '2019-11-22 09:55:45',
     caption: 'This is my first ever post.',
-    likes: ['John Doe', 'Mark Doe', 'Shawn Doe'],
+    likes: [
+      { avatarUrl: randomAvatar(), username: 'user.one' },
+      { avatarUrl: randomAvatar(), username: 'user.two' },
+      { avatarUrl: randomAvatar(), username: 'user.three' },
+      { avatarUrl: randomAvatar(), username: 'user.four' },
+    ],
     comments: [
       {
         username: 'John Doe',
@@ -75,10 +80,67 @@ export const feedData = [
     username: 'Random User 2',
     location: null,
     ownPost: true,
-    imagesPosted: [randomImages(), randomImages()],
+    imagesPosted: [randomImages()],
     timePosted: '2019-11-22 09:55:45',
-    caption: 'This is my first ever post.',
-    likes: ['John Doe', 'Mark Doe', 'Shawn Doe'],
+    caption: 'This is another post.',
+    likes: [
+      { avatarUrl: randomAvatar(), username: 'user.one' },
+      { avatarUrl: randomAvatar(), username: 'user.three' },
+    ],
+    comments: [
+      {
+        username: 'John Doe',
+        comment: 'Cool!',
+        timeCommented: '2021-03-02 19:16:07',
+      },
+      {
+        username: 'Shawn Doe',
+        comment: 'Damn how did you do this?!',
+        timeCommented: '2020-08-28 12:36:50',
+      },
+      {
+        username: 'John Doe',
+        comment: 'Cool!',
+        timeCommented: '2021-03-02 19:16:07',
+      },
+      {
+        username: 'Shawn Doe',
+        comment: 'Damn how did you do this?!',
+        timeCommented: '2020-08-28 12:36:50',
+      },
+    ],
+  },
+  {
+    avatarUrl: randomAvatar(),
+    username: 'Random User 3',
+    location: null,
+    ownPost: true,
+    imagesPosted: [randomImages(), randomImages()],
+    timePosted: '2019-07-05 09:55:45',
+    caption: 'This is another post.',
+    likes: [{ avatarUrl: randomAvatar(), username: 'user.one' }],
+    comments: [
+      {
+        username: 'John Doe',
+        comment: 'Cool!',
+        timeCommented: '2021-03-02 19:16:07',
+      },
+      {
+        username: 'Shawn Doe',
+        comment: 'Damn how did you do this?!',
+        timeCommented: '2020-08-28 12:36:50',
+      },
+    ],
+  },
+  {
+    avatarUrl: randomAvatar(),
+    username: 'Random User 3',
+    location: null,
+    ownPost: true,
+    imagesPosted: [randomImages(), randomImages()],
+    timePosted: '2019-01-22 09:55:45',
+    caption: 'This is another post.',
+    likes: [],
     comments: [
       {
         username: 'John Doe',
