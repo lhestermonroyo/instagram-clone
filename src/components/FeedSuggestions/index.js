@@ -20,6 +20,11 @@ const FeedSuggestions = (props) => {
         className={classes.suggestionContainer}
       >
         <strong>Suggestions For You</strong>
+        <Link to="/" className={classes.seeAllButton}>
+          <Typography variant="caption" color="primary">
+            <strong>See All</strong>
+          </Typography>
+        </Link>
       </Typography>
       {suggestionData.map((data, i) => (
         <CardHeader
@@ -27,7 +32,7 @@ const FeedSuggestions = (props) => {
           key={i}
           avatar={
             <Link to="#">
-              <Avatar src={data.avatarUrl} />
+              <Avatar src={data.avatarUrl} className={classes.avatar} />
             </Link>
           }
           action={<Button className={classes.followButton}>Follow</Button>}

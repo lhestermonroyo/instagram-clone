@@ -155,12 +155,12 @@ const FeedHeader = (props) => {
           </IconButton>
         }
         title={
-          <Typography variant="body1" color="textPrimary">
+          <Typography variant="body1" color="primary">
             <strong>{username}</strong>
           </Typography>
         }
         subheader={
-          <Typography variant="caption" color="textPrimary">
+          <Typography variant="caption" color="primary">
             {location}
           </Typography>
         }
@@ -247,7 +247,11 @@ const FeedLikes = (props) => {
       {likers.length !== 0 && (
         <>
           <Avatar src={avatarUrl} className={classes.feedLikesAvatar} />
-          <Typography variant="body2" className={classes.feedLikesLabel}>
+          <Typography
+            variant="body2"
+            color="primary"
+            className={classes.feedLikesLabel}
+          >
             {likers.length > 1 ? (
               <>
                 Liked by <strong>{username}</strong> and{' '}
@@ -268,7 +272,7 @@ const FeedLikes = (props) => {
 const FeedCaption = (props) => {
   const { username, caption } = props;
   return (
-    <Typography variant="body2" color="textPrimary">
+    <Typography variant="body2" color="primary">
       <strong>{username}</strong> {caption}
     </Typography>
   );
@@ -290,7 +294,7 @@ const FeedComments = (props) => {
           return (
             <>
               {i <= 2 ? (
-                <Typography variant="body2" color="textPrimary">
+                <Typography variant="body2" color="primary">
                   <strong>{comment.username}</strong> {comment.comment}
                 </Typography>
               ) : null}
