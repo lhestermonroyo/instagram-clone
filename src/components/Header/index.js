@@ -22,6 +22,9 @@ import {
   SendOutlined,
   ExploreOutlined,
   FavoriteBorderOutlined,
+  Home,
+  Send,
+  Explore,
 } from '@material-ui/icons';
 import Logo from '../Logo';
 import { styles } from './styles';
@@ -48,7 +51,7 @@ class Header extends Component {
   render() {
     const { classes, history } = this.props;
     const { anchorEl } = this.state;
-
+    const { pathname } = history.location;
     return (
       <>
         <div className={classes.root}>
@@ -75,14 +78,20 @@ class Header extends Component {
                   />
                 </div>
                 <div className={classes.grow} />
-                <IconButton color="primary">
-                  <HomeOutlined />
+                <IconButton
+                  color="primary"
+                  onClick={() => history.push('/feed')}
+                >
+                  {pathname === '/feed' ? <Home /> : <HomeOutlined />}
+                </IconButton>
+                <IconButton
+                  color="primary"
+                  onClick={() => history.push('/inbox')}
+                >
+                  {pathname === '/inbox' ? <Send /> : <SendOutlined />}
                 </IconButton>
                 <IconButton color="primary">
-                  <SendOutlined />
-                </IconButton>
-                <IconButton color="primary">
-                  <ExploreOutlined />
+                  {pathname === '/explore' ? <Explore /> : <ExploreOutlined />}
                 </IconButton>
                 <IconButton color="primary">
                   <FavoriteBorderOutlined />

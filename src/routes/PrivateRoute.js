@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom';
 
 const PrivateRoute = (props) => {
   const { path, history, container: Container, component: Component } = props;
+  console.log(Component);
   return (
     <Route
       path={path}

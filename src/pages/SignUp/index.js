@@ -33,12 +33,18 @@ class SignUp extends Component {
 
     this.handleChange = this.handleChange.bind(this);
     this.handleClickShowPassword = this.handleClickShowPassword.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
   handleChange(e) {
     this.setState({ [e.target.name]: e.target.value });
   }
   handleClickShowPassword() {
     this.setState({ showPassword: !this.state.showPassword });
+  }
+  handleSubmit(e) {
+    e.preventDefault();
+    const { history } = this.props;
+    history.push('/feed');
   }
   render() {
     const { classes } = this.props;
@@ -67,7 +73,7 @@ class SignUp extends Component {
               Log in with Facebook
             </Button>
             <Divider />
-            <form className={classes.form}>
+            <form className={classes.form} onSubmit={this.handleSubmit}>
               <FormControl className={classes.formcontrol}>
                 <TextField
                   autoFocus
