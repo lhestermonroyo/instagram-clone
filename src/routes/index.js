@@ -7,7 +7,7 @@ import Feed from '../pages/Feed';
 import PrivateRoute from './PrivateRoute';
 
 const privateRoutes = [
-  { path: '/feed', container: PrivateContainer, component: Feed },
+  { path: '/', container: PrivateContainer, component: Feed },
 ];
 
 class Routes extends Component {
@@ -16,7 +16,7 @@ class Routes extends Component {
     return (
       <HashRouter>
         <Switch>
-          <Route exact path="/" render={() => <LogIn />} />
+          <Route exact path="/log-in" render={() => <LogIn />} />
           <Route path="/sign-up" render={() => <SignUp />} />
           {privateRoutes.map(({ path, container, component }) => (
             <PrivateRoute

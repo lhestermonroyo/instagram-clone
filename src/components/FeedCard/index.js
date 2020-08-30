@@ -15,7 +15,7 @@ import {
   Button,
 } from '@material-ui/core';
 import {
-  MoreVert,
+  MoreHoriz,
   SendOutlined,
   FavoriteBorderOutlined,
   ChatBubbleOutlineOutlined,
@@ -24,49 +24,19 @@ import {
 import Carousel from 'react-material-ui-carousel';
 import classNames from 'classnames';
 import TimeAgo from 'react-timeago';
-import AvatarImg from '../../resource/avatar.png';
-import Img1 from '../../resource/1.png';
-import Img2 from '../../resource/2.png';
-import Img3 from '../../resource/3.png';
-import Img4 from '../../resource/4.png';
-import Img5 from '../../resource/5.png';
 import { styles } from './styles';
-
-const dummyData = [
-  {
-    avatar: AvatarImg,
-    username: 'lhest.art',
-    location: 'Iloilo City',
-    ownPost: true,
-    imagesPosted: [Img1, Img2, Img3, Img4, Img5],
-    timePosted: '2019-11-22 09:55:45',
-    caption: 'This is my first ever post.',
-    likes: ['John Doe', 'Mark Doe', 'Shawn Doe'],
-    comments: [
-      {
-        username: 'John Doe',
-        comment: 'Cool!',
-        timeCommented: '2021-03-02 19:16:07',
-      },
-      {
-        username: 'Shawn Doe',
-        comment: 'Damn how did you do this?!',
-        timeCommented: '2020-08-28 12:36:50',
-      },
-    ],
-  },
-];
+import { feedData } from '../../data';
 
 class FeedCard extends Component {
   render() {
     const { classes } = this.props;
-    return dummyData.map((data, i) => (
-      <Card key={i}>
+    return feedData.map((data, i) => (
+      <Card className={classes.feedCard} key={i}>
         <CardHeader
-          avatar={<Avatar src={data.avatar} />}
+          avatar={<Avatar src={data.avatarUrl} />}
           action={
             <IconButton aria-label="settings">
-              <MoreVert />
+              <MoreHoriz />
             </IconButton>
           }
           title={
@@ -150,10 +120,7 @@ class FeedCard extends Component {
               InputProps={{
                 endAdornment: (
                   <InputAdornment position="end">
-                    <Button
-                      className={classes.commentSubmitButton}
-                      aria-label="Toggle password visibility"
-                    >
+                    <Button className={classes.commentSubmitButton}>
                       Post
                     </Button>
                   </InputAdornment>

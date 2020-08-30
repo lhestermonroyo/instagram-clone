@@ -1,6 +1,9 @@
 export const styles = (theme) => ({
+  feedCard: {
+    marginBottom: theme.spacing(6),
+  },
   carouselPaper: {
-    height: 700,
+    height: 600,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
