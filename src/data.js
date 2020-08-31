@@ -155,3 +155,56 @@ export const feedData = [
     ],
   },
 ];
+
+export const inboxData = [
+  {
+    username: 'user.one',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.two',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.three',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.four',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.five',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.one',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.two',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.three',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.four',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.five',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+];
