@@ -208,3 +208,16 @@ export const inboxData = [
     timeActive: '2020-08-28 12:36:50',
   },
 ];
+
+export const inboxData2 = [
+  {
+    username: 'user.one',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+  {
+    username: 'user.two',
+    avatarUrl: randomAvatar(),
+    timeActive: '2020-08-28 12:36:50',
+  },
+];
