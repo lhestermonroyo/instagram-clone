@@ -83,7 +83,7 @@ class Inbox extends Component {
               </div>
               <InboxList classes={classes} />
             </Grid>
-            <Grid item xs={}></Grid>
+            <Grid item xs={8}></Grid>
           </Grid>
         </Card>
       </>
