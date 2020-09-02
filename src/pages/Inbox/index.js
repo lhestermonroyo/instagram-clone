@@ -39,7 +39,6 @@ class Inbox extends Component {
     this.handleTab = this.handleTab.bind(this);
   }
   handleTab(e, tabValue) {
-    console.log(e, tabValue);
     this.setState({
       tabValue,
     });
@@ -72,16 +71,8 @@ class Inbox extends Component {
                   textColor="primary"
                   onChange={this.handleTab}
                 >
-                  <Tab
-                    className={{ root: classes.inboxTab }}
-                    label="Primary"
-                    {...a11yProps(0)}
-                  />
-                  <Tab
-                    className={{ root: classes.inboxTab }}
-                    label="General"
-                    {...a11yProps(0)}
-                  />
+                  <Tab label="Primary" {...a11yProps(0)} />
+                  <Tab label="General" {...a11yProps(1)} />
                 </Tabs>
               </div>
               <TabPanel value={tabValue} index={0}>
@@ -102,7 +93,11 @@ class Inbox extends Component {
                 <Typography variant="body2" color="textSecondary">
                   Send private photos and messages to a friend or group.
                 </Typography>
-                <Button className={classes.sendMessageButton} variant="contained" color="secondary">
+                <Button
+                  className={classes.sendMessageButton}
+                  variant="contained"
+                  color="secondary"
+                >
                   Send Message
                 </Button>
               </div>

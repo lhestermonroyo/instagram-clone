@@ -5,11 +5,13 @@ import LogIn from '../pages/LogIn';
 import SignUp from '../pages/SignUp';
 import Feed from '../pages/Feed';
 import Inbox from '../pages/Inbox';
+import Profile from '../pages/Profile';
 import PrivateRoute from './PrivateRoute';
 
 const privateRoutes = [
   { path: '/feed', container: PrivateContainer, component: Feed },
   { path: '/inbox', container: PrivateContainer, component: Inbox },
+  { path: '/profile', container: PrivateContainer, component: Profile },
 ];
 
 class Routes extends Component {

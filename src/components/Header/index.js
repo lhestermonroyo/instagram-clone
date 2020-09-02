@@ -123,7 +123,7 @@ class Header extends Component {
                   open={Boolean(anchorEl)}
                   onClose={this.handleClose}
                 >
-                  <MenuItem>
+                  <MenuItem onClick={() => history.push('/profile')}>
                     <ListItemIcon>
                       <AccountCircle />
                     </ListItemIcon>

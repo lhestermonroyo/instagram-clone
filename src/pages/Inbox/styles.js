@@ -15,10 +15,6 @@ export const styles = (theme) => ({
     flexGrow: 1,
     borderBottom: '1px solid #DBDBDB',
   },
-  inboxTab: {
-    width: 40,
-    minWidth: 40,
-  },
   inboxPrimaryList: {
     overflowY: 'auto',
     height: 450,
